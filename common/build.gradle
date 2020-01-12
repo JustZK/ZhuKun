@@ -42,9 +42,9 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 //项目主页
-def siteUrl = 'https://github.com/JustZK'
+def siteUrl = 'https://github.com/JustZK/ZhuKun'
 //项目的版本控制地址
-def gitUrl = 'https://github.com/JustZK'
+def gitUrl = 'https://github.com/JustZK/ZhuKun'
 
 //发布到组织名称名字，必须填写
 group = "com.zk.common"
@@ -67,7 +67,7 @@ task javadoc(type: Javadoc) {
     options.charSet 'UTF-8'
     options.author true
     options.version true
-    options.links "https://github.com/JustZK"
+    options.links "https://github.com/JustZK/ZhuKun"
     failOnError false
 }
 
@@ -137,3 +137,6 @@ bintray {
         publish = true
     }
 }
+
+//./gradlew install
+//./gradlew bintrayUpload
