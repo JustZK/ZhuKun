@@ -1,4 +1,4 @@
-package com.hik.common
+package com.zk.common
 
 import org.junit.Test
 

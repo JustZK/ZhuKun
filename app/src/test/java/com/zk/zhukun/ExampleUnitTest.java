@@ -1,4 +1,4 @@
-package com.hik.zhukun;
+package com.zk.zhukun;
 
 import org.junit.Test;
 

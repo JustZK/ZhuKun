@@ -1,4 +1,4 @@
-package com.hik.common.utils
+package com.zk.common.utils
 
 import android.content.Context
 import android.util.Log

@@ -1,10 +1,11 @@
-package com.hik.zhukun;
+package com.zk.zhukun;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.hik.common.utils.LogUtil;
+import com.hik.zhukun.R;
+import com.zk.common.utils.LogUtil;
 
 public class MainActivity extends AppCompatActivity {
 
