@@ -21,7 +21,7 @@ class LogUtil {
     fun init(context: Context) {
         val externalFilesDir = context.getExternalFilesDir(null)
         if (externalFilesDir != null) {
-            val file = File("${externalFilesDir.path}/LOG")
+            val file = File("${externalFilesDir.path}/Log")
             if (!file.exists()) {
                 try {
                     file.mkdirs()
@@ -52,10 +52,10 @@ class LogUtil {
      * @param msg          byte[]信息
      * @param msgLength    需要打印的msg的长度
      */
-    fun d(msg: ByteArray, msgLength: Int){
-        if (logSwitch && msg.size <= msgLength){
+    fun d(msg: ByteArray, msgLength: Int) {
+        if (logSwitch && msgLength <= msg.size) {
             val buffers = StringBuilder()
-            for (i in 0..msgLength){
+            for (i in 0 until msgLength) {
                 buffers.append("${Integer.toHexString(msg[i].toInt() and 0xFF)}  ")
             }
             d(null, buffers.toString(), false)
@@ -67,10 +67,10 @@ class LogUtil {
      * @param msg          byte[]信息
      * @param msgLength    需要打印的msg的长度
      */
-    fun d(tag: String, msg: ByteArray, msgLength: Int){
-        if (logSwitch && msg.size <= msgLength){
+    fun d(tag: String, msg: ByteArray, msgLength: Int) {
+        if (logSwitch && msgLength <= msg.size) {
             val buffers = StringBuilder()
-            for (i in 0..msgLength){
+            for (i in 0 until msgLength) {
                 buffers.append("${Integer.toHexString(msg[i].toInt() and 0xFF)}  ")
             }
             d(tag, buffers.toString(), false)
@@ -83,10 +83,10 @@ class LogUtil {
      * @param msgLength    需要打印的msg的长度
      * @param recordLocal  是否本地日志保存
      */
-    fun d(tag: String, msg: ByteArray, msgLength: Int, recordLocal: Boolean){
-        if (logSwitch && msg.size <= msgLength){
+    fun d(tag: String, msg: ByteArray, msgLength: Int, recordLocal: Boolean) {
+        if (logSwitch && msgLength <= msg.size) {
             val buffers = StringBuilder()
-            for (i in 0..msgLength){
+            for (i in 0 until msgLength) {
                 buffers.append("${Integer.toHexString(msg[i].toInt() and 0xFF)}  ")
             }
             d(tag, buffers.toString(), recordLocal)
@@ -116,14 +116,14 @@ class LogUtil {
                     fileOutputStream.write(dataBytes)
                     fileOutputStream.write(t.toByteArray(charset))
                     fileOutputStream.close()
-                } catch (e: Exception){
+                } catch (e: Exception) {
                     e.printStackTrace()
                 }
             }
         }
     }
 
-    private fun targetStackTraceElementMessage(): String{
+    private fun targetStackTraceElementMessage(): String {
         val stackTraceElement = targetStackTraceElement()
         return "(${stackTraceElement?.fileName}:${stackTraceElement?.lineNumber}) ------ "
     }
@@ -132,7 +132,7 @@ class LogUtil {
         var targetStackTrace: StackTraceElement? = null
         var shouldTrace = false
         val stackTrace = Thread.currentThread().stackTrace
-        for (stackTraceElement in stackTrace){
+        for (stackTraceElement in stackTrace) {
             val isLogMethod = stackTraceElement.className == LogUtil::class.java.name;
             if (shouldTrace && !isLogMethod) {
                 targetStackTrace = stackTraceElement
