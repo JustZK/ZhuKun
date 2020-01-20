@@ -40,7 +40,7 @@ object AppVersionUtil {
         try {
             val pm = context.packageManager
             val pi = pm.getPackageInfo(context.packageName, 0)
-            versionName = "${pi.versionName}  -  ${pi.versionCode}"
+            versionName = "${pi.versionName} - ${pi.versionCode}"
         } catch (e: Exception) {
             e.printStackTrace()
         }
