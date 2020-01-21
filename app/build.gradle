@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -25,6 +26,10 @@ android {
     }
 }
 
+kapt {
+    generateStubs = true
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
@@ -35,4 +40,5 @@ dependencies {
     implementation project(path: ':common')
 //    implementation 'com.zk.common:common:1.0.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    kapt "androidx.databinding:databinding-compiler:3.5.3"
 }
