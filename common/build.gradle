@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 3
-        versionName "1.0.3"
+        versionCode 2
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -51,7 +51,7 @@ group = "com.zk.common"
 //发布到JCenter上的项目名字，必须填写(我的是justzk/common/common最后一个的common就是这个名称)
 def libName = "common"
 // 版本号，下次更新是只需要更改版本号即可
-version = "1.0.1"
+version = "1.0.2"
 /**  上面配置后上传至JCenter后的编译路径是这样的： compile 'group:libName:version'  **/
 
 //生成源文件
