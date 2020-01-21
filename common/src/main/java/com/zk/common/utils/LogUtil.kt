@@ -29,7 +29,7 @@ class LogUtil {
                     e.printStackTrace()
                 }
             }
-            logPath = file.path + "/" + nowTimeShort() + ".txt"
+            logPath = file.path + "/" + TimeUtil.nowTimeOfDay() + ".txt"
         }
     }
 
@@ -111,7 +111,7 @@ class LogUtil {
                     val t = String(c);// 将该字节码转化为字符串类型
                     val fileOutputStream = FileOutputStream(logPath, true)
                     val charset = Charsets.UTF_8
-                    val dataBytes = ("${nowTime()}\t$tagTemp  ---  ${targetStackTraceElementMessage()}" +
+                    val dataBytes = ("[${TimeUtil.nowTimeOfSeconds()}]\t$tagTemp  ---  ${targetStackTraceElementMessage()}" +
                             "  ---  $msg").toByteArray(charset)
                     fileOutputStream.write(dataBytes)
                     fileOutputStream.write(t.toByteArray(charset))
@@ -141,16 +141,5 @@ class LogUtil {
             shouldTrace = isLogMethod
         }
         return targetStackTrace
-    }
-
-    private fun nowTime(): String {
-        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA)
-        val nowTine = formatter.format(Date())
-        return "[$nowTine]"
-    }
-
-    private fun nowTimeShort(): String {
-        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.CHINA)
-        return formatter.format(Date())
     }
 }

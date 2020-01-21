@@ -5,7 +5,7 @@ import android.os.Environment
 import java.io.*
 import java.nio.channels.FileChannel
 
-class FileUtils {
+class FileUtil {
     /**
      * 检查SD卡是否可用
      */
@@ -115,15 +115,22 @@ class FileUtils {
 
     /**
      * 保存图片
-     * todo 待更新
+     * @param fileDirectory 照片存储地址
+     * @param fileName 照片名称
      */
-    fun saveBitmap(file: File?, bitmap: Bitmap): Boolean {
+    fun saveBitmap(fileDirectory: String, fileName: String?, bitmap: Bitmap): Boolean {
+        val filePath = when(fileName == null){
+            true -> fileDirectory
+            false -> "$fileDirectory/$fileName"
+        }
+        val file = File(filePath)
+
         var out: FileOutputStream? = null
         try {
             out = FileOutputStream(file)
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)
             return true
-        } catch (e: java.lang.Exception) {
+        } catch (e: Exception) {
             e.printStackTrace()
         } finally {
             try {
