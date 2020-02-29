@@ -3,15 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "29.0.2"
-
-
+    compileSdkVersion project.sdkVersion
+    buildToolsVersion project.toolsVersion
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 2
-        versionName "1.0.2"
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.sdkVersion
+        versionCode 3
+        versionName "1.0.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -28,12 +26,21 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // google & support
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation "com.android.support:appcompat-v7:$supportVersion"
+    implementation "com.android.support:support-v4:$supportVersion"
+    implementation "com.android.support:design:$supportVersion"
+    implementation "com.android.support:cardview-v7:$supportVersion"
+    implementation "com.android.support:recyclerview-v7:$supportVersion"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
 }
 
 /** 以下开始是将Android Library上传到JCenter的相关配置**/
@@ -51,7 +58,7 @@ group = "com.zk.common"
 //发布到JCenter上的项目名字，必须填写(我的是justzk/common/common最后一个的common就是这个名称)
 def libName = "common"
 // 版本号，下次更新是只需要更改版本号即可
-version = "1.0.2"
+version = "1.0.3"
 /**  上面配置后上传至JCenter后的编译路径是这样的： compile 'group:libName:version'  **/
 
 //生成源文件

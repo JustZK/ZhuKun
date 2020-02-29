@@ -1,0 +1,28 @@
+<resources>
+
+    <declare-styleable name="SettingBasic">
+        <attr name="settingIcon" format="reference" />
+        <attr name="settingIconColor" format="color" />
+        <attr name="settingIconBackgroundColor" format="color" />
+        <attr name="settingTitle" format="reference" />
+        <attr name="settingTitleSize" format="float" />
+        <attr name="settingTitleColor" format="color" />
+        <attr name="settingCaption" format="reference" />
+        <attr name="settingCaptionSize" format="float" />
+        <attr name="settingCaptionColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="SettingWithSwitchView">
+        <attr name="settingIcon" />
+        <attr name="settingIconColor" />
+        <attr name="settingIconBackgroundColor" />
+        <attr name="settingTitle" />
+        <attr name="settingTitleSize" />
+        <attr name="settingTitleColor" />
+        <attr name="settingCaption" />
+        <attr name="settingCaptionSize" />
+        <attr name="settingCaptionColor" />
+        <attr name="settingDefaultValue" format="boolean" />
+    </declare-styleable>
+
+</resources>

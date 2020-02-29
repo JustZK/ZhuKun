@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -19,12 +19,53 @@
         tools:context="com.zk.zhukun.MainActivity">
 
 
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            bind:srcCompat="@drawable/ic_1" />
+
+
         <Button
             android:id="@+id/main_ping_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ping"
-            android:onClick="@{onClickListener}"/>
+            android:onClick="@{onClickListener}"
+            android:text="Ping" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_spacing"
+            android:clickable="false"
+            android:foreground="@drawable/ripple"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/medium_spacing"
+                    android:paddingTop="@dimen/medium_spacing"
+                    android:text="大标题"
+                    android:textColor="@color/md_blue_A200"
+                    android:textSize="@dimen/medium_text"
+                    android:textStyle="bold" />
+
+                <com.zk.common.view.SettingBasic
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    app:settingIcon="@drawable/ic_1"/>
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 </layout>

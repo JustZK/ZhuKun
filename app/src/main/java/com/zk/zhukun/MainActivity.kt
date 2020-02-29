@@ -1,5 +1,7 @@
 package com.zk.zhukun
 
+import android.graphics.Color
+import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Message
@@ -33,6 +35,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         LogUtil.instance.d("是否可更新4：", " " + AppVersionUtil.checkNeedUpdate(this, "1-1-1", 2))
         LogUtil.instance.d("ip：", " " + RegularExpressionUtil.isIp("10.10.10.366"))
         LogUtil.instance.d("isSubnetMask：", " " + RegularExpressionUtil.isIp("255.255.0.0"))
+
+        binding.iv.setColorFilter(resources.getColor(R.color.blue_primary))
+        binding.iv.setBackgroundColor(resources.getColor(R.color.transparent))
     }
 
     override fun onClick(v: View?) {
