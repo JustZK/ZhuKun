@@ -23,7 +23,7 @@
             android:id="@+id/iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            bind:srcCompat="@drawable/ic_1" />
+            android:src="@drawable/ic_doc" />
 
 
         <Button
@@ -61,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    app:settingIcon="@drawable/ic_1"/>
+                    app:settingIcon="@drawable/ic_doc"/>
             </LinearLayout>
 
 
