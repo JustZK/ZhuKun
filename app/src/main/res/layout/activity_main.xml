@@ -62,6 +62,13 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     app:settingIcon="@drawable/ic_doc"/>
+
+                <com.zk.common.view.SettingWithSwitchView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    app:settingIcon="@drawable/ic_doc"/>
+
             </LinearLayout>
 
 
