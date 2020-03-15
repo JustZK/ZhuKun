@@ -19,7 +19,7 @@ object DataConversion {
     /**
      * 十六进制字符串转换byte数组（和上面那个对应）
      */
-    fun convertHexString(ss: String): ByteArray? {
+    fun convertHexString(ss: String): ByteArray {
         val digest = ByteArray(ss.length / 2)
         for (i in digest.indices) {
             val byteString = ss.substring(2 * i, 2 * i + 2)
