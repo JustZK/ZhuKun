@@ -2,12 +2,12 @@ package com.zk.common.encryption
 
 import com.zk.common.utils.DataConversion.convertHexString
 import com.zk.common.utils.DataConversion.toHexString
+import org.apache.commons.codec.binary.Base64
 import javax.crypto.Cipher
 import javax.crypto.SecretKey
 import javax.crypto.SecretKeyFactory
 import javax.crypto.spec.DESKeySpec
 import javax.crypto.spec.IvParameterSpec
-import org.apache.commons.codec.binary.Base64;
 
 object DESUtil {
     //密钥
