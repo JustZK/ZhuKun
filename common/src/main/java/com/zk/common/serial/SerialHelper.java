@@ -39,6 +39,7 @@ public abstract class SerialHelper {
             sendList = new ArrayList<>();
 
             isOpen = true;
+            sendFlag = true;
 
             mSerialPort = new SerialPort(new File(sPort), iBaudRate, 0);
 
@@ -66,12 +67,13 @@ public abstract class SerialHelper {
             mSerialPort = null;
         }
         isOpen = false;
+        stopSend();
     }
 
     /**
      * 结束写的线程
      */
-    public void stopSend() {
+    private void stopSend() {
         if (mSendThread != null)
             mSendThread.interrupt();
         sendFlag = false;
@@ -84,8 +86,6 @@ public abstract class SerialHelper {
 
     /**
      * 写
-     *
-     * @param bOutArray
      */
     private void send(byte[] bOutArray) {
         StringBuilder buffers = new StringBuilder();
@@ -165,8 +165,6 @@ public abstract class SerialHelper {
 
     /**
      * 添加写入的队列
-     *
-     * @param sendDate
      */
     public void addSendTask(byte[] sendDate) {
         sendList.add(sendDate);
@@ -178,8 +176,6 @@ public abstract class SerialHelper {
 
     /**
      * 获取频率
-     *
-     * @return
      */
     public int getBaudRate() {
         return iBaudRate;
@@ -187,9 +183,6 @@ public abstract class SerialHelper {
 
     /**
      * 设置频率
-     *
-     * @param iBaud
-     * @return
      */
     public boolean setBaudRate(int iBaud) {
         if (isOpen) {
@@ -202,9 +195,6 @@ public abstract class SerialHelper {
 
     /**
      * 设置频率
-     *
-     * @param sBaud
-     * @return
      */
     public boolean setBaudRate(String sBaud) {
         int iBaud = Integer.parseInt(sBaud);
@@ -213,8 +203,6 @@ public abstract class SerialHelper {
 
     /**
      * 获取串口路径
-     *
-     * @return
      */
     public String getPort() {
         return sPort;
@@ -222,9 +210,6 @@ public abstract class SerialHelper {
 
     /**
      * 设置串口路径
-     *
-     * @param sPort
-     * @return
      */
     public boolean setPort(String sPort) {
         if (isOpen) {
@@ -237,8 +222,6 @@ public abstract class SerialHelper {
 
     /**
      * 是否打开读写线程
-     *
-     * @return
      */
     public boolean isOpen() {
         return isOpen;
