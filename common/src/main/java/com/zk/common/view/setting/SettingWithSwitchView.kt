@@ -1,10 +1,9 @@
-package com.zk.common.view
+package com.zk.common.view.setting
 
 import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
@@ -12,9 +11,10 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.Size
 import androidx.annotation.StringRes
+import androidx.appcompat.widget.SwitchCompat
 import com.hik.common.R
 
-class SettingBasic : FrameLayout {
+class SettingWithSwitchView : FrameLayout {
     @DrawableRes
     private var mIconRes: Int? = null
     @ColorRes
@@ -34,9 +34,12 @@ class SettingBasic : FrameLayout {
     @ColorRes
     private var mCaptionTextColorRes: Int? = null
 
+    private var mDefaultValue = false
+
     private var mIcon: ImageView? = null
     private var mTitle: TextView? = null
     private var mCaption: TextView? = null
+    private var mToggle: SwitchCompat? = null
 
     constructor(context: Context) : this(context, null)
 
@@ -54,28 +57,29 @@ class SettingBasic : FrameLayout {
             }
 
             val inflater = LayoutInflater.from(getContext())
-            inflater.inflate(R.layout.view_setting_basic, this)
+            inflater.inflate(R.layout.view_setting_switch, this)
 
-            val a = getContext().obtainStyledAttributes(attrs, R.styleable.SettingBasic)
-            mIconRes = a.getResourceId(R.styleable.SettingBasic_settingIcon, R.drawable.ic_zk_logo)
-            mIconColorRes = a.getResourceId(R.styleable.SettingBasic_settingIconColor, R.color.md_grey_600)
-            mIconBackgroundRes = a.getResourceId(R.styleable.SettingBasic_settingIconBackgroundColor, R.color.transparent)
-            mTitleTextRes = a.getResourceId(R.styleable.SettingBasic_settingTitle, R.string.this_is_the_title)
-            mTitleTextSizeRes = a.getFloat(R.styleable.SettingBasic_settingTitleSize, resources.getDimension(R.dimen.sub_medium_big_text))
-            mTitleTextColorRes = a.getResourceId(R.styleable.SettingBasic_settingTitleColor, R.color.md_grey_600)
-            mCaptionTextRes = a.getResourceId(R.styleable.SettingBasic_settingCaption, R.string.this_is_the_content)
-            mCaptionTextSizeRes = a.getFloat(R.styleable.SettingBasic_settingCaptionSize, resources.getDimension(R.dimen.medium_small_text))
-            mCaptionTextColorRes = a.getResourceId(R.styleable.SettingBasic_settingCaptionColor, R.color.md_grey_500)
+            val a = getContext().obtainStyledAttributes(attrs, R.styleable.SettingWithSwitchView)
+            mIconRes = a.getResourceId(R.styleable.SettingWithSwitchView_settingIcon, R.drawable.ic_zk_logo)
+            mIconColorRes = a.getResourceId(R.styleable.SettingWithSwitchView_settingIconColor, R.color.md_grey_600)
+            mIconBackgroundRes = a.getResourceId(R.styleable.SettingWithSwitchView_settingIconBackgroundColor, R.color.transparent)
+            mTitleTextRes = a.getResourceId(R.styleable.SettingWithSwitchView_settingTitle, R.string.this_is_the_title)
+            mTitleTextSizeRes = a.getFloat(R.styleable.SettingWithSwitchView_settingTitleSize, resources.getDimension(R.dimen.sub_medium_big_text))
+            mTitleTextColorRes = a.getResourceId(R.styleable.SettingWithSwitchView_settingTitleColor, R.color.md_grey_600)
+            mCaptionTextRes = a.getResourceId(R.styleable.SettingWithSwitchView_settingCaption, R.string.this_is_the_content)
+            mCaptionTextSizeRes = a.getFloat(R.styleable.SettingWithSwitchView_settingCaptionSize, resources.getDimension(R.dimen.medium_small_text))
+            mCaptionTextColorRes = a.getResourceId(R.styleable.SettingWithSwitchView_settingCaptionColor, R.color.md_grey_500)
+            mDefaultValue = a.getBoolean(R.styleable.SettingWithSwitchView_settingDefaultValue, false)
 
             a.recycle()
         }
     }
 
-    //对内容填充
     override fun onFinishInflate() {
         mIcon = findViewById(R.id.icon)
         mTitle = findViewById(R.id.title)
         mCaption = findViewById(R.id.caption)
+        mToggle = findViewById(R.id.toggle)
 
         mIcon!!.setImageResource(mIconRes!!)
         mIcon!!.setColorFilter(resources.getColor(mIconColorRes!!))
@@ -89,7 +93,22 @@ class SettingBasic : FrameLayout {
 //        mCaption!!.textSize = mCaptionTextSizeRes!!
         mCaption!!.setTextColor(resources.getColor(mCaptionTextColorRes!!))
 
+        mToggle!!.isChecked = mDefaultValue
+
         super.onFinishInflate()
+    }
+
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+    }
+
+    fun setChecked(checked: Boolean) {
+        mToggle!!.isChecked = checked
+    }
+
+    fun getChecked(): Boolean {
+        return mToggle!!.isChecked
     }
 
     fun setTitleText(str: String) {

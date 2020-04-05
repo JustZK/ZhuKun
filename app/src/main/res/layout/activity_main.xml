@@ -57,13 +57,13 @@
                     android:textSize="@dimen/medium_text"
                     android:textStyle="bold" />
 
-                <com.zk.common.view.SettingBasic
+                <com.zk.common.view.setting.SettingBasic
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     app:settingIcon="@drawable/ic_doc"/>
 
-                <com.zk.common.view.SettingWithSwitchView
+                <com.zk.common.view.setting.SettingWithSwitchView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
