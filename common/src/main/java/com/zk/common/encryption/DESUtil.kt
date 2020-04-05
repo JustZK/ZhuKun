@@ -9,6 +9,10 @@ import javax.crypto.SecretKeyFactory
 import javax.crypto.spec.DESKeySpec
 import javax.crypto.spec.IvParameterSpec
 
+/**
+ * 若要使用该方法请引用
+ * implementation'apache-codec:commons-codec:1.2'
+ */
 object DESUtil {
     //密钥
     const val DEFAULT_KEY = "ZhuKun"
