@@ -28,4 +28,45 @@ object DataConversion {
         }
         return digest
     }
+
+    /**
+     * 合并两个byte数组
+     */
+    fun bytesMerger(byteHead: ByteArray, byteTail: ByteArray): ByteArray {
+        val byte3 = ByteArray(byteHead.size + byteTail.size)
+        System.arraycopy(byteHead, 0, byte3, 0, byteHead.size)
+        System.arraycopy(byteTail, 0, byte3, byteHead.size, byteTail.size)
+        return byte3
+    }
+
+    /**
+     * 和校验
+     *
+     * @param buffer 校验buffer
+     * @param size   长度
+     */
+    fun sumCheckLong(buffer: ByteArray, size: Int): Int {
+        var sum = 0
+        for (i in 0 until size) {
+            val num = if (buffer[i].toInt() >= 0) buffer[i].toInt() else buffer[i].toInt() + 256
+            sum += num
+        }
+        return sum
+    }
+
+    //两个byte转成int
+    fun twoByte2Int(b: ByteArray, off: Int): Int {
+        var n = 0
+        n = n or (0xFF and b[off].toInt()) shl 8
+        n = n or (0xFF and b[off + 1].toInt())
+        return n
+    }
+
+    //两个byte转成int
+    fun twoByte2Int(b: ByteArray): Int {
+        var n = 0
+        n = n or (0xFF and b[0].toInt()) shl 8
+        n = n or (0xFF and b[1].toInt())
+        return n
+    }
 }
