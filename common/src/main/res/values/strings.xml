@@ -3,4 +3,5 @@
 
     <string name="this_is_the_title">这是标题</string>
     <string name="this_is_the_content">这是内容</string>
+    <string name="loading_message">loading......</string>
 </resources>

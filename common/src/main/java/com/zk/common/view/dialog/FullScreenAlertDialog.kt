@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import com.hik.common.R
 
+/**
+ * 全屏dialog
+ */
 class FullScreenAlertDialog : AlertDialog{
 
     constructor(context: Context) : super(context, R.style.FullscreenDialog) {
@@ -30,7 +33,7 @@ class FullScreenAlertDialog : AlertDialog{
     }
 
     /**
-     * 把点击时间传到dialog下层
+     * 把点击事件传到dialog下层
      */
 //    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
 //        if (ownerActivity != null) {

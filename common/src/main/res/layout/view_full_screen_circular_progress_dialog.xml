@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/full_screen_circular_progress_dialog_ll"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/full_screen_circular_progress_dialog_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_in_progress" />
+
+    <TextView
+        android:id="@+id/full_screen_circular_progress_dialog_message_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sub_big_spacing"
+        android:text="@string/loading_message"
+        android:textColor="#03afff"
+        android:textSize="18sp" />
+</LinearLayout>

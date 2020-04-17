@@ -13,6 +13,7 @@ import com.zk.common.utils.RegularExpressionUtil
 import com.zk.common.utils.AppVersionUtil
 import com.zk.common.utils.LogUtil
 import com.zk.common.utils.PingUtil
+import com.zk.common.view.dialog.FullScreenCircularProgressDialog
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -38,6 +39,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.iv.setColorFilter(resources.getColor(R.color.blue_primary))
         binding.iv.setBackgroundColor(resources.getColor(R.color.transparent))
+
+//        val p = FullScreenCircularProgressDialog(this);
+//        p.setImageResource(R.drawable.ic_circular_progress)
+//        p.setColor(resources.getColor(R.color.red_primary))
+//        p.show();
     }
 
     override fun onClick(v: View?) {
