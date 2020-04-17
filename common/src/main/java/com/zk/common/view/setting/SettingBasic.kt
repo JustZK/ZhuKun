@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
@@ -50,7 +49,7 @@ class SettingBasic : FrameLayout {
             super(context, attrs, defStyleAttr) {
         if (attrs != null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                setBackgroundResource(R.drawable.ripple)
+                setBackgroundResource(R.drawable.style_ripple)
             }
 
             val inflater = LayoutInflater.from(getContext())

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 This file is used in everything that is clickable so that they have a nice
-ripple effect under them. In order to make a view have a ripple effect
+style_ripple effect under them. In order to make a view have a style_ripple effect
 when it is touched, simply set:
 
-android:background="@drawable/ripple
+android:background="@drawable/style_ripple
 
-The background color of this ripple drawable changes depending on the theme that the
+The background color of this style_ripple drawable changes depending on the theme that the
 user has selected.
 -->
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"

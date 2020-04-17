@@ -53,7 +53,7 @@ class SettingWithSwitchView : FrameLayout {
             super(context, attrs, defStyleAttr) {
         if (attrs != null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                setBackgroundResource(R.drawable.ripple)
+                setBackgroundResource(R.drawable.style_ripple)
             }
 
             val inflater = LayoutInflater.from(getContext())
