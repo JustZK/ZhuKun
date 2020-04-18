@@ -25,4 +25,17 @@
         <attr name="settingDefaultValue" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="FilledImageProgressBar">
+        <attr name="ringBackgroundColor" format="color" />
+        <attr name="ringBackgroundImage" format="reference" />
+        <attr name="ringBackgroundImageColor" format="color" />
+        <attr name="ringColor" format="color" />
+        <attr name="ringRadius" format="float" />
+        <attr name="ringEdgeWidth" format="float" />
+        <attr name="textColor" format="color" />
+        <attr name="totalProgress" format="float" />
+        <attr name="currentProgress" format="float" />
+        <attr name="showImage" format="boolean" />
+    </declare-styleable>
+
 </resources>

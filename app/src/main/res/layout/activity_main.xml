@@ -74,5 +74,9 @@
 
         </androidx.cardview.widget.CardView>
 
+        <com.zk.common.view.progress.FilledImageProgressBar
+            android:layout_width="400dp"
+            android:layout_height="400dp"/>
+
     </LinearLayout>
 </layout>
