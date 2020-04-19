@@ -141,11 +141,12 @@ class FilledImageProgressBar : View {
 //                // 计算上边位置
 //                val top = (width - mBitmap!!.height) / 2
 //            val mDestRect = Rect(left, top, left + mBitmap!!.width, top + mBitmap!!.height)
-                val mDestRect = RectF( mRingEdgeWidth!! * 4,
-                        mRingEdgeWidth!! * 4,
-                        width - mRingEdgeWidth!! * 4,
-                        height - mRingEdgeWidth!! * 4)
-                canvas.drawBitmap(mBitmap!!, Rect(0, 0, mBitmap!!.width, mBitmap!!.height), mDestRect,
+                val mDestRect = RectF( mRingEdgeWidth!! * 10,
+                        mRingEdgeWidth!! * 10,
+                        width - mRingEdgeWidth!! * 10,
+                        height - mRingEdgeWidth!! * 10)
+                canvas.drawBitmap(mBitmap!!,
+                        null, mDestRect,
                         mRingBackgroundImagePaint)
             }
         }
