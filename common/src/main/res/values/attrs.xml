@@ -28,6 +28,7 @@
     <declare-styleable name="FilledImageProgressBar">
         <attr name="ringBackgroundColor" format="color" />
         <attr name="ringBackgroundImage" format="reference" />
+        <attr name="ringBackgroundImageDistance" format="float" />
         <attr name="ringBackgroundImageColor" format="color" />
         <attr name="ringColor" format="color" />
         <attr name="ringRadius" format="float" />
