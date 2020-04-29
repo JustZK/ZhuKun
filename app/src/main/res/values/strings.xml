@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ZhuKun</string>
     <string name="caption">this is Caption</string>
+    <string name="countdown">无人操作：%1$d秒后，返回主界面！</string>
 </resources>
