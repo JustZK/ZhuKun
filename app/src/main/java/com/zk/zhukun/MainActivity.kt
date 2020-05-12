@@ -15,9 +15,7 @@ import com.zk.common.utils.AppVersionUtil
 import com.zk.common.utils.LogUtil
 import com.zk.common.utils.PingUtil
 import com.zk.common.utils.RegularExpressionUtil
-import kotlinx.android.synthetic.main.activity_main.view.*
 import java.lang.String
-import java.time.Clock.tick
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
