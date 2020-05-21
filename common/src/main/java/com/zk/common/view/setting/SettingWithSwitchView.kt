@@ -12,7 +12,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.Size
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.SwitchCompat
-import com.hik.common.R
+import com.zk.common.R
 
 class SettingWithSwitchView : FrameLayout {
     @DrawableRes

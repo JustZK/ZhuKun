@@ -9,8 +9,8 @@ import android.text.style.TextAppearanceSpan
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.hik.zhukun.R
-import com.hik.zhukun.databinding.ActivityMainBinding
+import com.zk.zhukun.R
+import com.zk.zhukun.databinding.ActivityMainBinding
 import com.zk.common.utils.AppVersionUtil
 import com.zk.common.utils.LogUtil
 import com.zk.common.utils.PingUtil

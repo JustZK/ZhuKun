@@ -7,7 +7,7 @@ android {
     compileSdkVersion project.sdkVersion
     buildToolsVersion project.toolsVersion
     defaultConfig {
-        applicationId "com.hik.zhukun"
+        applicationId "com.zk.zhukun"
         minSdkVersion project.minSdkVersion
         targetSdkVersion project.sdkVersion
         versionCode 1

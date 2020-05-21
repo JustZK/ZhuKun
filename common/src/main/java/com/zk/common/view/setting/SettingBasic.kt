@@ -11,7 +11,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.Size
 import androidx.annotation.StringRes
-import com.hik.common.R
+import com.zk.common.R
 
 class SettingBasic : FrameLayout {
     @DrawableRes

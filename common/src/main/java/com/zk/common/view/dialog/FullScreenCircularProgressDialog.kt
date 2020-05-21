@@ -10,7 +10,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.hik.common.R
+import com.zk.common.R
 
 /**
  * 全屏透明转圈圈dialog

@@ -11,7 +11,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.Size
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.graphics.drawable.toBitmap
-import com.hik.common.R
+import com.zk.common.R
 import kotlin.math.abs
 
 class FilledImageProgressBar : View {

@@ -7,7 +7,7 @@ import android.view.Gravity
 import android.view.MotionEvent
 import android.view.ViewGroup
 import android.view.WindowManager
-import com.hik.common.R
+import com.zk.common.R
 
 /**
  * 全屏dialog
