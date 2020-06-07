@@ -4,6 +4,7 @@ import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Process
 
 object ActivityUtil {
 
@@ -38,6 +39,22 @@ object ActivityUtil {
             // should not happen. A home is always installed, isn't it?
             null
         } else res.activityInfo.packageName
+    }
+
+    /**
+     * 获取当前进程名称
+     */
+    private fun getProcessName(context: Context): String? {
+        val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        val runningApps = am.runningAppProcesses ?: return null
+        for (proInfo in runningApps) {
+            if (proInfo.pid == Process.myPid()) {
+                if (proInfo.processName != null) {
+                    return proInfo.processName
+                }
+            }
+        }
+        return null
     }
 
     /**
