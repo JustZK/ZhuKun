@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">ZhuKun</string>
     <string name="caption">this is Caption</string>
+    <string name="project_name_with_version">通用库演示 V%1$s</string>
+    <string name="title_fill_image_progress_bar">带图片的进度条</string>
     <string name="countdown">无人操作：%1$d秒后，返回主界面！</string>
 </resources>

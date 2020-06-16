@@ -3,41 +3,42 @@ package com.zk.zhukun
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.TextAppearanceSpan
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.zk.zhukun.R
 import com.zk.zhukun.databinding.ActivityMainBinding
 import com.zk.common.utils.AppVersionUtil
 import com.zk.common.utils.LogUtil
 import com.zk.common.utils.PingUtil
-import com.zk.common.utils.RegularExpressionUtil
+import com.zk.common.view.dialog.FullScreenCircularProgressDialog
 import java.lang.String
+import java.lang.ref.WeakReference
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+    private lateinit var mMainBinding: ActivityMainBinding
+    private lateinit var mHandler: MainHandler
+    private var mFullScreenCircularProgressDialog: FullScreenCircularProgressDialog? = null
+
+    companion object {
+        private const val PING_RESULT = 0x01
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.onClickListener = this
-
-        LogUtil.instance.init(this)
-        LogUtil.instance.d("0987654321")
-        LogUtil.instance.logSwitch = true
-        LogUtil.instance.d("123456")
-        val a = byteArrayOf(0x32, 0x33, 0x34, 0x35)
-        LogUtil.instance.d("zk", a, a.size, true)
-        LogUtil.instance.d("当前版本号：", AppVersionUtil.appVersionNameForShow(this))
-        LogUtil.instance.d("是否可更新1：", " " + AppVersionUtil.checkNeedUpdate(this, "1-1-1", null))
-        LogUtil.instance.d("是否可更新2：", " " + AppVersionUtil.checkNeedUpdate(this, "1-0-0", null))
-        LogUtil.instance.d("是否可更新3：", " " + AppVersionUtil.checkNeedUpdate(this, "1.0", null))
-        LogUtil.instance.d("是否可更新4：", " " + AppVersionUtil.checkNeedUpdate(this, "1-1-1", 2))
-        LogUtil.instance.d("ip：", " " + RegularExpressionUtil.isIp("10.10.10.366"))
-        LogUtil.instance.d("isSubnetMask：", " " + RegularExpressionUtil.isIp("255.255.0.0"))
+        mMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        mMainBinding.onClickListener = this
+        mMainBinding.mainTitleTv.text = String.format(
+                resources.getString(R.string.project_name_with_version),
+                AppVersionUtil.appVersionNameForShow(this)
+        )
+        mHandler = MainHandler(this)
 
         // 从资源获取字体大小
         val pixelSize = resources.getDimension(R.dimen.super_big_text)
@@ -60,24 +61,65 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
          * Spanned.SPAN_INCLUSIVE_INCLUSIVE--- 包含头和包含尾
          */
         spanBuilder.setSpan(textAppearanceSpan, index, index + String.valueOf(99).length, Spanned.SPAN_EXCLUSIVE_INCLUSIVE)
-        binding.tv.setText(spanBuilder)
-
-//        val p = FullScreenCircularProgressDialog(this);
-//        p.setImageResource(R.drawable.ic_circular_progress)
-//        p.setColor(resources.getColor(R.color.red_primary))
-//        p.show();
+        mMainBinding.tv.text = spanBuilder
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
+        when (v?.id) {
+            R.id.main_setting_with_switch_test -> {
+                mMainBinding.mainSettingWithSwitchTest.setChecked(!mMainBinding.mainSettingWithSwitchTest.getChecked())
+            }
             R.id.main_ping_btn -> {
+                if (mFullScreenCircularProgressDialog == null){
+                    mFullScreenCircularProgressDialog = FullScreenCircularProgressDialog(this@MainActivity)
+                    mFullScreenCircularProgressDialog!!.setColor(resources.getColor(R.color.blue_primary))
+                }
+                mFullScreenCircularProgressDialog!!.show()
+
                 Thread(Runnable {
                     var pingEntity = PingUtil.PingEntity(this,
                             "www.baidu.com", 5, 10)
                     pingEntity = PingUtil().ping(pingEntity)
+
+                    val message = Message.obtain()
+                    message.what = PING_RESULT
+                    message.obj = "pingTime:${pingEntity.pingTime}\nresult:${pingEntity.result}\n${pingEntity.resultBuffer}"
+                    mHandler.sendMessage(message)
                     LogUtil.instance.d("ping result：", "pingTime:${pingEntity.pingTime}\nresult:${pingEntity.result}\n${pingEntity.resultBuffer}")
                 }).start()
             }
+            R.id.main_setting_test -> {
+                var progress = 0;
+                Thread(Runnable {
+                    while (progress < 100){
+                        progress++
+                        mMainBinding.mainFillImageProgressBar.setProgress(progress.toFloat())
+                        try {
+                            Thread.sleep(200)
+                        } catch (e: InterruptedException) {
+                            e.printStackTrace()
+                        }
+                    }
+                }).start()
+            }
+        }
+    }
+
+    private fun handleMessage(msg: Message) {
+        when (msg.what) {
+            PING_RESULT -> {
+                mFullScreenCircularProgressDialog!!.dismiss()
+                Toast.makeText(this@MainActivity, msg.obj.toString(), Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    private class MainHandler(mainActivity: MainActivity) : Handler() {
+        private val mainWeakReference = WeakReference(mainActivity)
+
+        override fun handleMessage(msg: Message) {
+            super.handleMessage(msg)
+            mainWeakReference.get()!!.handleMessage(msg)
         }
     }
 
