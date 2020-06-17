@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     mFullScreenCircularProgressDialog!!.setColor(resources.getColor(R.color.blue_primary))
                 }
                 mFullScreenCircularProgressDialog!!.show()
-
+                mFullScreenCircularProgressDialog!!.setMessage("ping......")
                 Thread(Runnable {
                     var pingEntity = PingUtil.PingEntity(this,
                             "www.baidu.com", 5, 10)
