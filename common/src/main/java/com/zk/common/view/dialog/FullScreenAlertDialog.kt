@@ -12,7 +12,7 @@ import com.zk.common.R
 /**
  * 全屏dialog
  */
-class FullScreenAlertDialog : AlertDialog{
+open class FullScreenAlertDialog : AlertDialog{
 
     constructor(context: Context) : super(context, R.style.FullscreenDialog) {
         if (context is Activity) {

@@ -15,7 +15,7 @@ import com.zk.common.R
 /**
  * 全屏透明转圈圈dialog
  */
-class FullScreenCircularProgressDialog(context: Context) : Dialog(context, R.style.FullScreenCircularProgressDialog) {
+open class FullScreenCircularProgressDialog(context: Context) : Dialog(context, R.style.FullScreenCircularProgressDialog) {
     //中间图片 setImageResource(R.drawable.ic_circular_progress)
     private var mRotationImage: ImageView
     //图片下方的文字

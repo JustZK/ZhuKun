@@ -7,7 +7,7 @@ import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
-class LogUtil {
+open class LogUtil {
     var logSwitch = false;
     private val logTag = "TEST";
     private var logPath: String? = null
