@@ -1,6 +1,6 @@
 package com.zk.common.serial
 
-import android_serialport_api.SerialPort
+import com.zk.common.serial.android_serialport_api.SerialPort
 import com.zk.common.utils.LogUtil
 import java.io.File
 import java.io.IOException
