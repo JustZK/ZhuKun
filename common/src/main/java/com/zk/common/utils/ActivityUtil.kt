@@ -13,17 +13,17 @@ object ActivityUtil {
      * @param activityName 包名 like：com.zk.common.utils.ActivityUtil
      */
     fun isTopActivity(context: Context, activityName: String): Boolean {
-        LogUtil.instance.d("isTopActivity")
+        LogUtil.instance.d(msg = "isTopActivity")
         var result = false
         try {
             val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
             val cn = am.getRunningTasks(1)[0].topActivity
-            LogUtil.instance.d("para:$activityName")
-            LogUtil.instance.d("TopActivity:${cn.className}")
+            LogUtil.instance.d(msg = "para:$activityName")
+            LogUtil.instance.d(msg = "TopActivity:${cn.className}")
             result = cn.className == activityName
         } catch (e: Exception) {
             e.printStackTrace()
-            LogUtil.instance.d(e.message.toString())
+            LogUtil.instance.d(msg = e.message.toString())
         }
         return result
     }
@@ -42,9 +42,9 @@ object ActivityUtil {
     }
 
     /**
-     * 获取当前进程名称
+     * Application获取当前初始化的进程名
      */
-    private fun getProcessName(context: Context): String? {
+    fun getProcessName(context: Context): String? {
         val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val runningApps = am.runningAppProcesses ?: return null
         for (proInfo in runningApps) {

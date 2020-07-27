@@ -108,7 +108,7 @@ abstract class SerialHelper(port: String, baudRate: Int) {
                 while (mSendFlag) {
                     mSendLock.withLock {
                         if (mSendList.size == 0) {
-                            LogUtil.instance.d("mSendCondition.await")
+                            LogUtil.instance.d("SerialHelper", "mSendCondition.await", false)
                             mSendCondition.await(1, TimeUnit.SECONDS)
                         }
                     }

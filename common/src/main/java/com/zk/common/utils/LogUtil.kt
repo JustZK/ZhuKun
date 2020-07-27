@@ -4,8 +4,6 @@ import android.content.Context
 import android.util.Log
 import java.io.File
 import java.io.FileOutputStream
-import java.text.SimpleDateFormat
-import java.util.*
 
 open class LogUtil {
     var logSwitch = false;
@@ -34,32 +32,12 @@ open class LogUtil {
     }
 
     /**
-     * @param msg          信息
-     */
-    fun d(msg: String) {
-        d(null, msg, false)
-    }
-
-    /**
-     * @param tag          标签
-     * @param msg          信息
-     */
-    fun d(tag: String, msg: String) {
-        d(tag, msg, false)
-    }
-
-    /**
      * @param msg          byte[]信息
      * @param msgLength    需要打印的msg的长度
      */
-    fun d(msg: ByteArray, msgLength: Int) {
-        if (logSwitch && msgLength <= msg.size) {
-            val buffers = StringBuilder()
-            for (i in 0 until msgLength) {
-                buffers.append("${Integer.toHexString(msg[i].toInt() and 0xFF)}  ")
-            }
-            d(null, buffers.toString(), false)
-        }
+    @Deprecated(message = "已经弃用，刚开始写kotlin的时候，用Java的思路写的，不好意思，弃用了！", replaceWith = ReplaceWith(expression = "d(tag = logTag, msg = msg, recordLocal = false)"))
+    fun d(msg: ByteArray, msgLength: Int = msg.size) {
+        d(msg = msg, msgLength = msgLength, recordLocal = false)
     }
 
     /**
@@ -67,14 +45,9 @@ open class LogUtil {
      * @param msg          byte[]信息
      * @param msgLength    需要打印的msg的长度
      */
-    fun d(tag: String, msg: ByteArray, msgLength: Int) {
-        if (logSwitch && msgLength <= msg.size) {
-            val buffers = StringBuilder()
-            for (i in 0 until msgLength) {
-                buffers.append("${Integer.toHexString(msg[i].toInt() and 0xFF)}  ")
-            }
-            d(tag, buffers.toString(), false)
-        }
+    @Deprecated(message = "已经弃用，刚开始写kotlin的时候，用Java的思路写的，不好意思，弃用了！", replaceWith = ReplaceWith(expression = "d(tag = logTag, msg = msg, recordLocal = false)"))
+    fun d(tag: String = logTag, msg: ByteArray, msgLength: Int = msg.size) {
+        d(tag = tag, msg = msg, msgLength = msgLength, recordLocal = false)
     }
 
     /**
@@ -83,7 +56,7 @@ open class LogUtil {
      * @param msgLength    需要打印的msg的长度
      * @param recordLocal  是否本地日志保存
      */
-    fun d(tag: String, msg: ByteArray, msgLength: Int, recordLocal: Boolean) {
+    fun d(tag: String = logTag, msg: ByteArray, msgLength: Int = msg.size, recordLocal: Boolean = false) {
         if (logSwitch && msgLength <= msg.size) {
             val buffers = StringBuilder()
             for (i in 0 until msgLength) {
@@ -98,10 +71,9 @@ open class LogUtil {
      * @param msg          信息
      * @param recordLocal  是否本地日志保存
      */
-    fun d(tag: String?, msg: String, recordLocal: Boolean) {
+    fun d(tag: String = logTag, msg: String, recordLocal: Boolean = false) {
         if (logSwitch) {
-            val tagTemp = if (tag == null) logTag else "$logTag  $tag"
-            Log.d(tagTemp, "${targetStackTraceElementMessage()}---$msg")
+            Log.d(tag, "${targetStackTraceElementMessage()}---$msg")
             if (recordLocal && logPath != null) {
                 // 本地日志保存
                 try {
@@ -111,7 +83,7 @@ open class LogUtil {
                     val t = String(c);// 将该字节码转化为字符串类型
                     val fileOutputStream = FileOutputStream(logPath, true)
                     val charset = Charsets.UTF_8
-                    val dataBytes = ("[${TimeUtil.nowTimeOfSeconds()}]\t$tagTemp  ---  ${targetStackTraceElementMessage()}" +
+                    val dataBytes = ("[${TimeUtil.nowTimeOfSeconds()}]\t$tag  ---  ${targetStackTraceElementMessage()}" +
                             "  ---  $msg").toByteArray(charset)
                     fileOutputStream.write(dataBytes)
                     fileOutputStream.write(t.toByteArray(charset))
