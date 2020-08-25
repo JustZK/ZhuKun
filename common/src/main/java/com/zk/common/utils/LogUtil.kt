@@ -32,6 +32,21 @@ open class LogUtil {
     }
 
     /**
+     * @param msg          信息
+     */
+    fun d(msg: String) {
+        d(tag = logTag, msg = msg, recordLocal = false)
+    }
+
+    /**
+     * @param tag          标签
+     * @param msg          信息
+     */
+    fun d(tag: String, msg: String) {
+        d(tag = tag, msg = msg, recordLocal = false)
+    }
+
+    /**
      * @param msg          byte[]信息
      * @param msgLength    需要打印的msg的长度
      */
