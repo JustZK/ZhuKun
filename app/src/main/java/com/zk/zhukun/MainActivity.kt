@@ -16,6 +16,7 @@ import com.zk.zhukun.databinding.ActivityMainBinding
 import com.zk.common.utils.AppVersionUtil
 import com.zk.common.utils.LogUtil
 import com.zk.common.utils.PingUtil
+import com.zk.common.utils.TimeUtil
 import com.zk.common.view.dialog.FullScreenCircularProgressDialog
 import java.lang.String
 import java.lang.ref.WeakReference
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 AppVersionUtil.appVersionNameForShow(this)
         )
         mHandler = MainHandler(this)
-
+        LogUtil.instance.logSwitch = true
         // 从资源获取字体大小
         val pixelSize = resources.getDimension(R.dimen.super_big_text)
         // 第一个参数:包含占位符字符串
@@ -62,6 +63,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
          */
         spanBuilder.setSpan(textAppearanceSpan, index, index + String.valueOf(99).length, Spanned.SPAN_EXCLUSIVE_INCLUSIVE)
         mMainBinding.tv.text = spanBuilder
+
+
+        LogUtil.instance.d("时间", TimeUtil.earlyMorningOfTheDay())
+        LogUtil.instance.d("时间", TimeUtil.oldTimeOfSeconds(-2))
     }
 
     override fun onClick(v: View?) {
