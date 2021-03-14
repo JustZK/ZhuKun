@@ -50,4 +50,9 @@
         <item name="android:tint">@android:color/white</item> <!-- 为返回icon着色 -->
     </style>
 
+    <style name="KeyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#666666</item>
+        <item name="colorControlActivated">#ffffff</item>
+    </style>
+
 </resources>

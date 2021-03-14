@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="FrameLayout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sub_medium_spacing"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="13dp"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/key_et_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:digits="@string/filter_code"
+                    android:gravity="center_horizontal"
+                    android:maxLength="4"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="23sp"
+                    android:theme="@style/KeyEditText"
+                    android:typeface="monospace" />
+
+                <View
+                    android:id="@+id/key_one_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/key_et_one"
+                    android:layout_marginTop="@dimen/sub_medium_spacing"
+                    android:background="#666666" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="13dp"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/key_et_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:digits="@string/filter_code"
+                    android:gravity="center_horizontal"
+                    android:maxLength="5"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="23sp"
+                    android:theme="@style/KeyEditText"
+                    android:typeface="monospace" />
+
+                <View
+                    android:id="@+id/key_two_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/key_et_two"
+                    android:layout_marginTop="@dimen/sub_medium_spacing"
+                    android:background="#666666" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="13dp"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/key_et_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:digits="@string/filter_code"
+                    android:gravity="center_horizontal"
+                    android:maxLength="5"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="23sp"
+                    android:theme="@style/KeyEditText"
+                    android:typeface="monospace" />
+
+                <View
+                    android:id="@+id/key_three_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/key_et_three"
+                    android:layout_marginTop="@dimen/sub_medium_spacing"
+                    android:background="#666666" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/key_et_four"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:digits="@string/filter_code"
+                    android:gravity="center_horizontal"
+                    android:maxLength="5"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="23sp"
+                    android:theme="@style/KeyEditText"
+                    android:typeface="monospace" />
+
+                <View
+                    android:id="@+id/key_four_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/key_et_four"
+                    android:layout_marginTop="@dimen/sub_medium_spacing"
+                    android:background="#666666" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/key_hint"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sub_medium_spacing"
+            android:gravity="center"
+            android:textColor="@color/md_grey_600"
+            tools:text="this is hint" />
+
+    </LinearLayout>
+</merge>
