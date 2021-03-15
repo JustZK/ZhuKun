@@ -5,6 +5,7 @@
     <color name="colorAccent">#FFC400</color>
 
     <color name="transparent">#00000000</color>
+    <color name="black">#000000</color>
 
     <!-- Material Design Color - Color palette -->
     <color name="red_primary">#F44336</color>

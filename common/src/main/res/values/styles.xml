@@ -52,7 +52,7 @@
 
     <style name="KeyEditText" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">#666666</item>
-        <item name="colorControlActivated">#ffffff</item>
+        <item name="colorControlActivated">#000000</item>
     </style>
 
 </resources>

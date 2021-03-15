@@ -40,7 +40,10 @@
     </declare-styleable>
 
     <declare-styleable name="KeyEditText">
-        <attr name="keyHint" format="reference" />
+        <attr name="keyHintText" format="reference" />
+        <attr name="keyHintTextLayoutMarginTop" format="float" />
+        <attr name="keyHintTextColor" format="color" />
+        <attr name="keyHintTextSize" format="float" />
     </declare-styleable>
 
 </resources>

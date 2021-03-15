@@ -107,6 +107,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 }).start()
             }
+            R.id.main_sb_1 -> {
+                mMainBinding.keyEditText.warn(this, "error warning")
+            }
         }
     }
 

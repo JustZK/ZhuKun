@@ -8,7 +8,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/sub_medium_spacing"
+        android:layout_marginTop="@dimen/sub_medium_spacing"
+        android:layout_marginBottom="@dimen/sub_medium_spacing"
+        android:layout_marginStart="@dimen/sub_big_spacing"
+        android:layout_marginEnd="@dimen/sub_big_spacing"
         android:orientation="vertical">
 
         <LinearLayout
@@ -33,7 +36,7 @@
                     android:gravity="center_horizontal"
                     android:maxLength="4"
                     android:singleLine="true"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/black"
                     android:textSize="23sp"
                     android:theme="@style/KeyEditText"
                     android:typeface="monospace" />
@@ -60,9 +63,9 @@
                     android:background="@null"
                     android:digits="@string/filter_code"
                     android:gravity="center_horizontal"
-                    android:maxLength="5"
+                    android:maxLength="4"
                     android:singleLine="true"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/black"
                     android:textSize="23sp"
                     android:theme="@style/KeyEditText"
                     android:typeface="monospace" />
@@ -90,9 +93,9 @@
                     android:background="@null"
                     android:digits="@string/filter_code"
                     android:gravity="center_horizontal"
-                    android:maxLength="5"
+                    android:maxLength="4"
                     android:singleLine="true"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/black"
                     android:textSize="23sp"
                     android:theme="@style/KeyEditText"
                     android:typeface="monospace" />
@@ -119,9 +122,9 @@
                     android:background="@null"
                     android:digits="@string/filter_code"
                     android:gravity="center_horizontal"
-                    android:maxLength="5"
+                    android:maxLength="4"
                     android:singleLine="true"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/black"
                     android:textSize="23sp"
                     android:theme="@style/KeyEditText"
                     android:typeface="monospace" />
@@ -142,7 +145,7 @@
             style="@style/TextAppearance.AppCompat.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/sub_medium_spacing"
+            android:layout_marginTop="@dimen/medium_spacing"
             android:gravity="center"
             android:textColor="@color/md_grey_600"
             tools:text="this is hint" />
