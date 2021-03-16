@@ -64,6 +64,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         spanBuilder.setSpan(textAppearanceSpan, index, index + String.valueOf(99).length, Spanned.SPAN_EXCLUSIVE_INCLUSIVE)
         mMainBinding.tv.text = spanBuilder
 
+        mMainBinding.keyEditText.setHint("设备已经激活")
+        mMainBinding.keyEditText.mIntervalLine = "-"
+        mMainBinding.keyEditText.setKeyValue("1234-QWER-ASDF-ZXCV")
+        mMainBinding.keyEditText.setEnable(false)
 
         LogUtil.instance.d("时间", TimeUtil.earlyMorningOfTheDay())
         LogUtil.instance.d("时间", TimeUtil.oldTimeOfSeconds(-2))

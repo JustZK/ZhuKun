@@ -246,6 +246,39 @@ class KeyEditText : FrameLayout {
         return null
     }
 
+    fun setKeyValue(key: String) : Boolean{
+        if (key.length < 16) return false
+        else if (key.length == 16) {
+            mKeyEtOne.setText(key.substring(0,4))
+            mKeyEtTwo.setText(key.substring(4,8))
+            mKeyEtThree.setText(key.substring(8,12))
+            mKeyEtFour.setText(key.substring(12,16))
+        } else {
+            val keys = key.split(mIntervalLine).toTypedArray()
+            if (keys.size == 4){
+                mKeyEtOne.setText(keys[0])
+                mKeyEtTwo.setText(keys[1])
+                mKeyEtThree.setText(keys[2])
+                mKeyEtFour.setText(keys[3])
+            } else {
+                return false
+            }
+        }
+
+        return true
+    }
+
+    fun setEnable(enable : Boolean){
+        mKeyEtOne.isEnabled = enable
+        mKeyEtTwo.isEnabled = enable
+        mKeyEtThree.isEnabled = enable
+        mKeyEtFour.isEnabled = enable
+    }
+
+    fun getEnable(): Boolean{
+        return mKeyEtOne.isEnabled && mKeyEtTwo.isEnabled && mKeyEtThree.isEnabled && mKeyEtFour.isEnabled
+    }
+
     // 为组件设置一个抖动效果
     fun warn(context: Context, str: String) {
         val shake = AnimationUtils.loadAnimation(context,
