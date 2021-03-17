@@ -16,6 +16,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.Size
 import androidx.annotation.StringRes
 import com.zk.common.R
+import java.util.*
 
 class KeyEditText : FrameLayout {
     @StringRes
@@ -236,12 +237,12 @@ class KeyEditText : FrameLayout {
     }
 
     fun getKeyValue(): String?{
-        val one = mKeyEtOne.text.trim()
-        val two = mKeyEtTwo.text.trim()
-        val three = mKeyEtThree.text.trim()
-        val four = mKeyEtFour.text.trim()
+        val one = mKeyEtOne.text.trim().toString().toUpperCase(Locale.getDefault())
+        val two = mKeyEtTwo.text.trim().toString().toUpperCase(Locale.getDefault())
+        val three = mKeyEtThree.text.trim().toString().toUpperCase(Locale.getDefault())
+        val four = mKeyEtFour.text.trim().toString().toUpperCase(Locale.getDefault())
         if (one.isNotEmpty() && two.isNotEmpty() && three.isNotEmpty() && four.isNotEmpty()){
-            return "$one$mKeyHintColorRes$two$mKeyHintColorRes$three$mKeyHintColorRes$four"
+            return "$one$mIntervalLine$two$mIntervalLine$three$mIntervalLine$four"
         }
         return null
     }
